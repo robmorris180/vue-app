@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="app">
+    <header>
+      <h1>NASA -- Mars Rover Photos</h1>
+    </header>
+    <main>
+      <h2>Click the button to get a random photo</h2>
+      <button id="btn" v-on:click="getPhotos">Get Photos</button>
+      <div v-if="loading">Loading...</div>
+
+      <div class="wrapper"></div>
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+  import axios from 'axios';
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-  },
-};
+  export default {
+    name: 'app',
+    data() {
+      return{
+        photos: [],
+        loading: false
+      }
+    },
+    methods: {
+      
+    }
+  }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
